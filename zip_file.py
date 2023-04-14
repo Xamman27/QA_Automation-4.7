@@ -1,9 +1,10 @@
 import os
 import zipfile
-#simple_zip_pdf = zipfile.ZipFile(os.path.abspath('resources'),'w')
-#print(os.path.join(os.path.dirname('QA_Automation-4.7'), 'resources'))
-#zip_pdf = zipfile.ZipFile(os.path.join(os.path.abspath('resources'), 'zip_pdf'))
-#zip_pdf.write(os.path.join(os.path.abspath('resources'), 'pdf_example'))
 
-with zipfile.ZipFile(os.path.join(os.path.abspath('resources'),'archive'),'w') as zf:
-    zf.write(os.path.join(os.path.abspath('resources')),'pdf_exapmple')
+path_to_zip = os.path.abspath('files_for_test')
+file_to_zip = os.listdir(path_to_zip)
+
+with zipfile.ZipFile(os.path.join(os.path.abspath('resources'), 'zip_for_test'), 'w') as zf:
+    for file in file_to_zip:
+        add_file = os.path.join(path_to_zip, file)
+        zf.write(add_file)
